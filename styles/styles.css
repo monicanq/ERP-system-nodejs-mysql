@@ -1,0 +1,62 @@
+body {
+  margin :0;
+  padding : 0;
+  background: #ccc;
+  font-family: verdana;
+}
+nav {
+  display: flex;
+  background-color: #333;
+}
+ul {
+  display: flex;
+  flex-grow: 1;
+  list-style-type: none;
+  justify-content: flex-end;
+}
+li {
+  padding : 0px 10px;
+}
+.logo{
+  margin: auto;
+  padding: 5px;
+}
+.content {
+  display: flex;
+  color: #111;
+  align-items: center;
+  justify-content: center;
+
+}
+
+form{
+  text-align: center;
+  margin: 50px 0px;
+  max-width: 300px;
+  height: auto;
+  background: #333;
+  color: #fff;
+  padding: 20px;
+}
+p{
+  font-size: 16px;
+}
+.button{
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  color: #fff;
+  background: #333;
+  border: 2px solid #fff;
+}
+.loginMessage{
+  font-size: 10px;
+}
+.correct {
+  border: 2px solid limegreen;
+  background: #beff7d;
+}
+.wrong {
+  border: 2px solid crimson;
+  background: #ffa1a1;
+}
