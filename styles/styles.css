@@ -2,7 +2,7 @@ body {
   margin :0;
   padding : 0;
   background: #ccc;
-  font-family: verdana;
+  font-family: arial;
 }
 nav {
   display: flex;
@@ -26,13 +26,11 @@ li {
   color: #111;
   align-items: center;
   justify-content: center;
-
 }
-
 form{
   text-align: center;
   margin: 50px 0px;
-  max-width: 300px;
+  min-width: 300px;
   height: auto;
   background: #333;
   color: #fff;
@@ -59,4 +57,39 @@ p{
 .wrong {
   border: 2px solid crimson;
   background: #ffa1a1;
+}
+button:hover{
+  background: #666;
+}
+/*Style for the popup*/
+.popup-wrapper{
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0px;
+  left:0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.popup{
+  position: relative;
+  align-items: center;
+  background-color: #fff;
+  max-width: 300px;
+  color: #333;
+  margin: 30% auto;
+  padding: 30px;
+}
+.popup-content{
+  text-align: center;
+}
+.popup-content button{
+  padding: 5px 15px;
+}
+.pointer{
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  cursor: pointer;
 }

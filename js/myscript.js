@@ -3,6 +3,7 @@ const usernamePattern = /^[a-zA-Z]{3,15}$/;
 const passwordPattern = /^[0-9]{4}$/
 const msg = document.querySelector('.loginMessage');
 
+
 form.addEventListener('submit', e =>{
   e.preventDefault();
   const username = form.Username.value;
@@ -20,6 +21,7 @@ form.addEventListener('submit', e =>{
     msg.innerHTML += ' The password is not correct';
   }
 })
+
 
 form.Username.addEventListener('keyup', e =>{
   if (usernamePattern.test(e.target.value)){
