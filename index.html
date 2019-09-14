@@ -16,14 +16,14 @@
       </ul>
     </nav>
     <div class="content">
-        <form class="login" method="post">
-          <div class="Username">
+        <form action= 'auth' class="login" method="POST">
+          <div class="username">
             <p>Username</p>
-            <input type="text" name="Username" placeholder="Username">
+            <input type="text" name="username" placeholder="Username" required>
           </div>
           <div class="password">
             <p>Password</p>
-            <input type="password" name="password" placeholder="password">
+            <input type="password" name="password" placeholder="password" required>
           </div>
           <p class="loginMessage"></p>
           <button type="submit" name="button" class="button">Submit</button>
@@ -40,7 +40,7 @@
     </div>
     <script type="text/javascript" src="js/myscript.js"></script>
     <script type="text/javascript" src="js/popup.js"></script>
-
+    <script type="text/javascript" scr="js/login.js"></script>
 
   </body>
 </html>
