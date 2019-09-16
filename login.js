@@ -15,7 +15,6 @@ const connection = mysql.createConnection({
 	database : 'neptury'
 });
 
-
 app.use(session({
 	secret: 'I_havToFind_aSaferKey', //Check into this for security
 	resave: true,
@@ -31,15 +30,20 @@ app.use('/js', express.static('js'));
 
 //Serve the login page
 app.get('/login', (req, res) => {
-	res.render('index');
+	var data = {name : ''};
+	res.render('login', {data: data});
 });
 
+//If the user is logged in redirect to home page, otherwise redirect to login
 app.get('/home', (req, res) => {
 	if (req.session.loggedin) {
+		console.log('session details');
+		console.log(req.session.username);
 		console.log('I am logged in');
-		res.render('index');
+		var data = {name: req.session.username}
+		res.render('index', {data: data});
 	} else {
-		console.log('please log in');
+		res.render('login');
 	}
 });
 
@@ -54,41 +58,31 @@ app.post('/auth', function(req, res) {
 				req.session.username = username;
 				res.redirect('/home');
 			} else {
-				res.send('Incorrect Username and/or Password!');
+				console.log('Incorrect Username and/or Password!');
 			}
 			res.end();
 		});
 	} else {
 		res.send('Please enter Username and Password!');
 		res.end();
-	}
+	}});
+
+//
+app.get('/piezas', (req, res) => {
+	// var data = {name : ''};
+	res.render('piezas');
 });
 
-//If the user is logged in and send responses accordingly
-app.get('/home', function(req, res) {
-	if (req.session.loggedin) {
-		console.log('I am logged in');
-		document.getElementById("loginForm").reset();
-		res.send('Welcome back, ' + req.session.username + '!');
-	} else {
-		res.send('Please login to view this page!');
-	}
-	res.end();
-});
+// Select single post
+// app.get('/getpost/:id', (req, res) => {
+//     let sql = `SELECT * FROM posts WHERE id = ${req.params.id}`;
+//     let query = db.query(sql, (err, result) => {
+//         if(err) throw err;
+//         console.log(result);
+//         res.send('Post fetched...');
+//     });
+// });
 
 
 //Start the Server
 app.listen(3000);
-
-// //Start the Server
-// const http = require ('http');
-// // const fs = require ('fs'); //Uncomment if we want to stream content
-// let server = http.createServer((req, res) =>{
-//   console.log('Request was made: '+ req.url);
-//   res.writeHead(200, {'Content-Type' : 'text/html'});
-//   // const myReadStream = fs.createReadStream(__dirname + '/filename.html', 'utf8'); //uncomment if we want to stream content
-//   // myReadStream.pipe(res);
-//   res.end('Server started on port 3006'); //Comment if we are streaming content
-// });
-// server.listen(3000,'127.0.0.1');
-// console.log('Server up and running');

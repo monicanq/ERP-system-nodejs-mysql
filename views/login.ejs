@@ -10,29 +10,29 @@
       <div class="logo">
         <img src="img/logo.png" alt="logo">
       </div>
-      <ul class="navPane">
+      <ul>
         <li class="tabOps"><button type="button" name="piezas" class="button">Piezas</button></li>
         <li class="tabOps"><button type="button" name="button" class="button">Proyectos</button></li>
       </ul>
     </nav>
-    <div class="login-data">
-      <p>Session started by: <% if (data.name.length>0){ %><span id= "sessionLock"><%= data.name %></span> <% } %> </p>
-    </div>
     <div class="content">
-
+        <form action= 'auth' id="loginForm" class="login" method="POST">
+          <div class="username">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Username" required>
+          </div>
+          <div class="password">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="password" required>
+          </div>
+          <p class="loginMessage"></p>
+          <button type="submit" name="button" class="button">Login</button>
+        </form>
     </div>
-    <div class="popup-wrapper">
-      <div class="popup">
-        <div class="popup-close pointer">X</div>
-        <div class="popup-content">
-          <h2>Please login to continue</h2>
-          <button type="button" name="button" class="button popup-close">Close</button>
-        </div>
-      </div>
+    <div class="veil">
     </div>
     <script type="text/javascript" src="js/myscript.js"></script>
     <script type="text/javascript" src="js/popup.js"></script>
     <script type="text/javascript" scr="js/login.js"></script>
-
   </body>
 </html>
